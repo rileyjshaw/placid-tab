@@ -1,13 +1,8 @@
 {
-  // Required
   "name": "Placid Tab",
   "version": "1.0.0",
   "manifest_version": 2,
-
-  // Recommended
   "description": "A minimal New Tab page",
-
-  // Optional
   "author": "rileyjshaw",
   "chrome_url_overrides" : {
     "newtab": "home.html"
