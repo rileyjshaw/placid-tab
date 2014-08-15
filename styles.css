@@ -20,7 +20,9 @@ svg {
   right: 50%;
   margin-right: -37px;
   margin-top: -45px;
-  opacity: 1
+}
+path {
+  transition: fill 0.2s;
 }
 /* Removed for now.. Chrome wrongly activates :active on
    secondary-click, so a right-click hides the triangle.
