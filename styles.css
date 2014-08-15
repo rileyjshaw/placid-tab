@@ -1,0 +1,235 @@
+body, html, #content, #page1 {
+  width: 100%;
+  height: 100%;
+  color: #ccc;
+}
+body, html, a, svg, div, button {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+#page1 {
+  position: relative;
+}
+
+svg, path, a {
+  position: absolute;
+}
+svg {
+  top: 50%;
+  right: 50%;
+  margin-right: -37px;
+  margin-top: -45px;
+  opacity: 1
+}
+a ~ svg {
+  -webkit-transition: opacity 0s 999999999999s;
+  transition: opacity 0s 999999999999s;
+}
+a:active ~ svg {
+  -webkit-transition: opacity 0s;
+  transition: opacity 0s;
+  opacity: 0;
+}
+a {
+  display: block;
+  z-index: 1;
+  height: 50%;
+  width: 50%;
+}
+a:hover {
+  cursor: default;
+}
+a:nth-child(1):hover ~ svg path {
+  fill: #efe0d7;
+}
+a:nth-child(2):hover ~ svg path {
+  fill: #e0d7ef;
+}
+a:nth-child(3):hover ~ svg path {
+  fill: #d7e0ef;
+}
+a:nth-child(4):hover ~ svg path {
+  fill: #efd7e0;
+}
+a:nth-child(1), a:nth-child(2) {
+  top: 0;
+  bottom: 50%;
+}
+a:nth-child(1), a:nth-child(3) {
+  left: 0;
+  right: 50%;
+}
+a:nth-child(2), a:nth-child(4) {
+  left: 50%;
+  right: 0;
+}
+a:nth-child(3), a:nth-child(4) {
+  top: 50%;
+  bottom: 0;
+}
+
+.next {
+  position: fixed;
+  height: 100%;
+  width: 15%;
+  z-index: 2;
+  right: 0;
+}
+.slider {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 100%;
+  background-color: green;
+  -webkit-transition: left 300ms ease-in-out;
+  transition: left 300ms ease-in-out;
+  pointer-events: none;
+}
+.next:hover .slider {
+  left: 0;
+}
+.next:active .slider {
+  background-color: black;
+}
+.next ~ #content {
+  position: absolute;
+  -webkit-transition: left 0s 999999999999s;
+  transition: left 0s 999999999999s;
+  left: 0;
+}
+.next:active ~ #content {
+  background-color: blue;
+  -webkit-transition: left 600ms ease-in-out;
+  transition: left 600ms ease-in-out;
+  left: -100%;
+}
+next:active {
+  opacity: 0;
+}
+
+.quadrant, button {
+  position: fixed;
+}
+button {
+  height: 70px;
+  width: 70px;
+  border-radius: 35px;
+  top: 50%;
+  right: 50%;
+  margin-right: -35px;
+  margin-top: -35px;
+  outline: 0;
+  background-color: #efefef;
+  -webkit-transition: background-color 300ms ease-in-out;
+  transition: background-color 300ms ease-in-out;
+}
+button:hover {
+  background-color: #f3f3f3;
+  cursor: pointer;
+}
+.quadrant {
+  height: 20%;
+  width: 20%;
+  line-height: 48px;
+  font-size: 0;
+}
+.quadrant:first-child, .quadrant:nth-child(2) {
+  top: 20%;
+  bottom: 60%;
+}
+.quadrant:first-child, .quadrant:nth-child(3) {
+  left: 20%;
+  right: 60%;
+}
+.quadrant:nth-child(2), .quadrant:nth-child(4) {
+  left: 60%;
+  right: 20%;
+}
+.quadrant:nth-child(3), .quadrant:nth-child(4) {
+  top: 60%;
+  bottom: 20%;
+}
+label {
+  text-align: center;
+  font-size: 16px;
+  width: 15%;
+  display: inline-block;
+  vertical-align: middle;
+}
+span {
+  width: 100%;
+  text-align: center;
+}
+input[type="text"] {
+  margin: 48px 0;
+  background-color: #efefef;
+  width: 85%;
+  display: inline-block;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  font-size: 18px;
+  border: 0;
+  color: #ccc;
+}
+.colorwrapper {
+  height: 70px;
+  width: 70px;
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+
+}
+input[type="color"] {
+  height: 100px;
+  width: 100px;
+  position: relative;
+  top: -15px;
+  left: -15px;
+}
+input[type="color"]:hover {
+  cursor: pointer;
+}
+input:focus{
+  outline: 0;
+}
+#save {
+  color: #303030;
+  font-size: 16px;
+}
+
+/* Icon stuff */
+@font-face {
+  font-family: 'icomoon';
+  src:url('fonts/icomoon.eot');
+  src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.woff') format('woff'),
+    url('fonts/icomoon.ttf') format('truetype'),
+    url('fonts/icomoon.svg#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon-paint-format, .icon-disk, .icon-link, .icon-checkmark {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.icon-paint-format:before {
+  content: "\70";
+}
+.icon-disk:before {
+  content: "\73";
+}
+.icon-link:before {
+  content: "\6c";
+}
+.icon-checkmark:before {
+  content: "\63";
+}
