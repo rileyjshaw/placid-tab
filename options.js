@@ -6,23 +6,23 @@
     for (var i = 0, _len = textInputs.length; i < _len; i++) {
       links[i] = textInputs[i].value;
     }
-    localStorage['links'] = JSON.stringify(links);
+    localStorage.links = JSON.stringify(links);
 
     for (var i = 0, _len = colorInputs.length; i < _len; i++) {
       colors[i] = colorInputs[i].value;
     }
-    localStorage['colors'] = JSON.stringify(colors);
+    localStorage.colors = JSON.stringify(colors);
 
-    save.innerHTML = '<span class='icon-checkmark'>';
+    save.innerHTML = '<span class="icon-checkmark">';
     setTimeout(function () {
-      save.innerHTML = '<span class='icon-disk'>';
+      save.innerHTML = '<span class="icon-disk">';
     }, 1500);
   }
 
   // Restores select box state to saved value from localStorage.
   function restore_options () {
-    var savedLinks = JSON.parse(localStorage['links']);
-    var savedColors = JSON.parse(localStorage['colors']);
+    var savedLinks = JSON.parse(localStorage.links);
+    var savedColors = JSON.parse(localStorage.colors);
 
     if (savedLinks) {
       for (var i = 0, _len = textInputs.length; i < _len; i++)

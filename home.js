@@ -3,8 +3,8 @@
   var head = document.head;
   var style = document.createElement('style');
   var anchors = document.querySelector('.content').querySelectorAll('a');
-  var links = JSON.parse(localStorage['links']);
-  var colors = JSON.parse(localStorage['colors']);
+  var links = JSON.parse(localStorage.links);
+  var colors = JSON.parse(localStorage.colors);
 
   // Add proper hrefs to <a>s
   links.forEach(function (link, i) {
