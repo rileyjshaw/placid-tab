@@ -14,7 +14,7 @@
   // Add a <style> tag to <head> that'll trigger the proper color change
   // on <a> hovers. Event listeners? Nah too mainstream.
   colors.forEach(function (color, i) {
-    var declaration = document.createTextNode('a:nth-child(' + (i + 1) + '):hover ~ svg path { fill: ' + color + ';}');
+    var declaration = document.createTextNode('.content a:nth-child(' + (i + 1) + '):hover ~ svg path { fill: ' + color + ';}');
     style.appendChild(declaration);
   });
 
