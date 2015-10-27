@@ -1,6 +1,7 @@
 {
-  "name": "Placid Tab",
-  "version": "1.0.1",
+  "name": "Placid Tab New Tab Page",
+  "short_name": "Placid Tab",
+  "version": "2.0.0",
   "manifest_version": 2,
   "description": "A minimal New Tab page",
   "author": "rileyjshaw",

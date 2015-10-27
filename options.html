@@ -1,49 +1,49 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
     <title>Options</title>
     <link rel="stylesheet" href="styles.css">
   </head>
 
   <body>
-
     <div class="quadrant">
       <label for="link1"><span class="icon-link"></span></label>
-      <input type="text" name="link1" spellcheck="false" />
+      <input type="text" id="link1" spellcheck="false" />
       <label for="color1"><span class="icon-paint-format"></span></label>
       <div class="colorwrapper">
-        <input type="color" name="color1" value="#efe0d7" />
+        <input type="color" id="color1" value="#efe0d7" />
       </div>
     </div>
     <div class="quadrant">
       <label for="link1"><span class="icon-link"></span></label>
-      <input type="text" name="link1" spellcheck="false" />
+      <input type="text" id="link1" spellcheck="false" />
       <label for="color2"><span class="icon-paint-format"></span></label>
       <div class="colorwrapper">
-        <input type="color" name="color2" value="#e0d7ef" />
+        <input type="color" id="color2" value="#e0d7ef" />
       </div>
     </div>
     <div class="quadrant">
       <label for="link3"><span class="icon-link"></span></label>
-      <input type="text" name="link3" spellcheck="false" />
+      <input type="text" id="link3" spellcheck="false" />
       <label for="color3"><span class="icon-paint-format"></span></label>
       <div class="colorwrapper">
-        <input type="color" name="color3" value="#d7e0ef" />
+        <input type="color" id="color3" value="#d7e0ef" />
       </div>
     </div>
     <div class="quadrant">
       <label for="link4"><span class="icon-link"></span></label>
-      <input type="text" name="link4" spellcheck="false" />
+      <input type="text" id="link4" spellcheck="false" />
       <label for="color4"><span class="icon-paint-format"></span></label>
       <div class="colorwrapper">
-        <input type="color" name="color4" value="#efd7e0" />
+        <input type="color" id="color4" value="#efd7e0" />
       </div>
     </div>
 
     <span></span>
-    <button id="save"><span class="icon-disk"></span></button>
+    <button id="dark-mode"><span class="icon-moon"></span></button>
 
+    <script src="darkMode.js"></script>
+    <script src="options.js"></script>
   </body>
-
-  <script src="options.js"></script>
-
 </html>

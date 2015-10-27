@@ -1,50 +1,47 @@
-;(function () {
+;(function (placid) {
+  // Debounce an arbitrary function by {delay} milliseconds
+  function debounce(fn, delay) {
+    var timeout;
+    return function () {
+      clearTimeout(timeout);
+      timeout = setTimeout(fn, delay || 500);
+    };
+  }
+
+  // Save all input values except for colors that haven't changed from default
   function save_options () {
-    var links = [];
-    var colors = [];
+    localStorage.links = JSON.stringify(textInputs.map(function (input) {
+      return input.value;
+    }));
 
-    for (var i = 0, _len = textInputs.length; i < _len; i++) {
-      links[i] = textInputs[i].value;
-    }
-    localStorage.links = JSON.stringify(links);
-
-    for (var i = 0, _len = colorInputs.length; i < _len; i++) {
-      colors[i] = colorInputs[i].value;
-    }
-    localStorage.colors = JSON.stringify(colors);
-
-    save.innerHTML = '<span class="icon-checkmark">';
-    setTimeout(function () {
-      save.innerHTML = '<span class="icon-disk">';
-    }, 1500);
+    localStorage.colors = JSON.stringify(colorInputs.map(function (input, i) {
+      var color = input.value;
+      var defaultColor = placid.color_at(i);
+      return color === defaultColor ? null : color;
+    }));
   }
 
-  // Restores select box state to saved value from localStorage.
+  // Restore select box state to saved value from localStorage
   function restore_options () {
-    var savedLinks = JSON.parse(localStorage.links);
-    var savedColors = JSON.parse(localStorage.colors);
+    var savedLinks = JSON.parse(localStorage.links || '[]');
+    var savedColors = JSON.parse(localStorage.colors || '[]');
 
-    if (savedLinks) {
-      for (var i = 0, _len = textInputs.length; i < _len; i++)
-        textInputs[i].value = savedLinks[i];
-    }
-    if (savedColors) {
-      for (var i = 0, _len = colorInputs.length; i < _len; i++)
-        colorInputs[i].value = savedColors[i];
-    }
-  }
+    if (savedLinks.length)
+      textInputs.forEach(function (input, i) { input.value = savedLinks[i]; });
 
-  function saveIfEnter (e) {
-    if (e.keyCode === 13) save_options();
+    if (savedColors.length)
+      colorInputs.forEach(function (input, i) { input.value = savedColors[i] || placid.color_at(i); });
   }
 
   // DOM
-  var textInputs = document.querySelectorAll('input[type=text]');
-  var colorInputs = document.querySelectorAll('input[type=color]');
-  var save = document.getElementById('save');
+  var textInputs = [].slice.call(document.querySelectorAll('input[type=text]'));
+  var colorInputs = [].slice.call(document.querySelectorAll('input[type=color]'));
+  var darkMode = document.getElementById('dark-mode');
 
   // Event listeners
-  document.addEventListener('keydown', saveIfEnter, false);
   document.addEventListener('DOMContentLoaded', restore_options, false);
-  save.addEventListener('click', save_options, false);
-})();
+  darkMode.addEventListener('click', placid.toggle_theme, false);
+  textInputs.concat(colorInputs).forEach(function (input) {
+    input.addEventListener('input', debounce(save_options), false);
+  });
+})(this.placid || (this.placid = {}));

@@ -1,12 +1,14 @@
 body, html, .content {
   width: 100%;
   height: 100%;
-  color: #ccc;
 }
 body, html, a, svg, div, button {
   padding: 0;
   margin: 0;
   border: 0;
+}
+body {
+  color: #ccc;
 }
 .content {
   position: relative;
@@ -83,9 +85,10 @@ button {
   border-radius: 35px;
   top: 50%;
   right: 50%;
-  margin-right: -35px;
   margin-top: -35px;
   outline: 0;
+  font-size: 16px;
+  color: #303030;
   background-color: #efefef;
   -webkit-transition: background-color 300ms ease-in-out;
   transition: background-color 300ms ease-in-out;
@@ -93,6 +96,9 @@ button {
 button:hover {
   background-color: #f3f3f3;
   cursor: pointer;
+}
+#dark-mode {
+  margin-right: -35px;
 }
 .quadrant {
   height: 20%;
@@ -128,16 +134,17 @@ span {
   text-align: center;
 }
 input[type="text"] {
-  margin: 48px 0;
-  background-color: #efefef;
-  width: 85%;
   display: inline-block;
   height: 48px;
+  width: 85%;
+  margin: 48px 0;
+  padding: 0;
+  border: 0;
   line-height: 48px;
   text-align: center;
   font-size: 18px;
-  border: 0;
   color: #ccc;
+  background-color: #efefef;
 }
 .colorwrapper {
   height: 70px;
@@ -159,24 +166,20 @@ input[type="color"]:hover {
 input:focus{
   outline: 0;
 }
-#save {
-  color: #303030;
-  font-size: 16px;
-}
 
 /* Icon stuff */
 @font-face {
   font-family: 'icomoon';
-  src:url('fonts/icomoon.eot');
-  src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.woff') format('woff'),
-    url('fonts/icomoon.ttf') format('truetype'),
-    url('fonts/icomoon.svg#icomoon') format('svg');
+  src:url('fonts/icomoon.eot?evxobq');
+  src:url('fonts/icomoon.eot?evxobq#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?evxobq') format('truetype'),
+    url('fonts/icomoon.woff?evxobq') format('woff'),
+    url('fonts/icomoon.svg?evxobq#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
-.icon-paint-format, .icon-disk, .icon-link, .icon-checkmark {
+[class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon';
   speak: none;
   font-style: normal;
@@ -186,15 +189,49 @@ input:focus{
   line-height: 1;
   -webkit-font-smoothing: antialiased;
 }
-.icon-paint-format:before {
-  content: "\70";
+.icon-sun:before {
+  content: "\e900";
 }
-.icon-disk:before {
-  content: "\73";
+.icon-moon:before {
+  content: "\e901";
+}
+.icon-paint-format:before {
+  content: "\e902";
 }
 .icon-link:before {
-  content: "\6c";
+  content: "\e904";
 }
-.icon-checkmark:before {
-  content: "\63";
+.icon-sun, .icon-moon {
+  font-size: 36px;
+}
+
+/* Dark Mode variant */
+.dark-mode {
+  color: #303030;
+  background: #111;
+}
+.dark-mode path {
+  fill: #303030;
+}
+.dark-mode a:nth-child(1):hover ~ svg path {
+  fill: #3f3027;
+}
+.dark-mode a:nth-child(2):hover ~ svg path {
+  fill: #30273f;
+}
+.dark-mode a:nth-child(3):hover ~ svg path {
+  fill: #27303f;
+}
+.dark-mode a:nth-child(4):hover ~ svg path {
+  fill: #3f2730;
+}
+.dark-mode button {
+  color: #ccc;
+  background-color: #303030;
+}
+.dark-mode button:hover {
+  background-color: #2a2a2a;
+}
+.dark-mode input[type="text"] {
+  background-color: #303030;
 }
